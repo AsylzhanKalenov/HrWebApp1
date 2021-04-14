@@ -1,0 +1,139 @@
+﻿@model RegisViewModel
+
+<form asp-action="Regis" asp-controller="Auth" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    @*<div>
+        <div>
+            <label asp-for="Email">Введите Email</label><br />
+            <input type="text" asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label asp-for="Name">Введите Имя</label><br />
+            <input type="text" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label asp-for="Surname">Введите Фамилия</label><br />
+            <input type="text" asp-for="Surname" />
+            <span asp-validation-for="Surname"></span>
+        </div>
+        <div>
+            <label asp-for="Lastname">Введите Отчество</label><br />
+            <input type="text" asp-for="Lastname" />
+            <span asp-validation-for="Lastname"></span>
+        </div>
+        <div>
+            <label asp-for="Phone">Введите Мобильный номер</label><br />
+            <input type="text" asp-for="Phone" />
+            <span asp-validation-for="Phone"></span>
+        </div>
+        <div>
+            <label asp-for="BirthDate">Введите Дата рождение</label><br />
+            <input type="date" asp-for="BirthDate" />
+            <span asp-validation-for="BirthDate"></span>
+        </div>
+        <div>
+            <label asp-for="Male">Введите Пол</label><br />
+            <input type="radio" asp-for="Male" value="1" />
+            <label asp-for="Male">Муж</label>
+            <input type="radio" asp-for="Male" value="0" />
+            <label asp-for="Male">Жен</label>
+            <span asp-validation-for="Male"></span>
+        </div>
+        <div>
+            <label asp-for="Password">Введите пароль</label><br />
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div>
+            <label asp-for="ConfirmPassword">Повторите пароль</label><br />
+            <input asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+        <div>
+            <input type="submit" value="Регистрация" />
+        </div>
+    </div>*@
+
+    <div class="container">
+        <p>
+            <img src="../img/regicon.png" class="img-fluid">
+            Регистрация данных
+        </p>
+        <table class="registr">
+            <tr>
+                <td><p>Ваша Фамилия:</p></td>
+                <td>
+                    <input type="text" asp-for="Surname" />
+                    <span asp-validation-for="Surname"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Ваше Имя:</p></td>
+                <td>
+                    <input type="text" asp-for="Name" />
+                    <span asp-validation-for="Name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Ваше Отчество:</p></td>
+                <td>
+                    <input type="text" asp-for="Lastname" />
+                    <span asp-validation-for="Lastname"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Пол:</p></td>
+                <td>
+                    <input style="width: 15px !important;" type="radio" asp-for="Male" value="1" />
+                    <label asp-for="Male">Муж</label>
+                    <input style="width: 15px !important;" type="radio" asp-for="Male" value="0" />
+                    <label asp-for="Male">Жен</label>
+                    <span asp-validation-for="Male"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Дата рождение:</p></td>
+                <td>
+                    <input type="date" asp-for="BirthDate" />
+                    <span asp-validation-for="BirthDate"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Телефон:</p></td>
+                <td>
+                    <input type="text" asp-for="Phone" />
+                    <span asp-validation-for="Phone"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Ваш E-Mail:</p></td>
+                <td>
+                    <input type="text" asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Пароль:</p></td>
+                <td>
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Подтверждение пароля:</p></td>
+                <td>
+                    <input asp-for="ConfirmPassword" />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input style="width: 135px !important;" type="submit" value="Регистрация" class="btn btn-primary"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

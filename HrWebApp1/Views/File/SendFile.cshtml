@@ -1,0 +1,121 @@
+﻿@model FileViewModel
+
+<h2>Регистрация</h2>
+
+<form asp-action="SendFile" asp-controller="File" asp-anti-forgery="true" method="post" enctype="multipart/form-data">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div>
+            <label asp-for="Udv">Введите Udv</label><br />
+            <div class="dUdv">
+                <input type="file" asp-for="Udv" />
+            </div>
+            <span asp-validation-for="Udv"></span>
+        </div>
+        <div>
+        <label asp-for="Specialization">Введите Specialization</label><br />
+            <div class="dSpecialization">
+                <input type="file" asp-for="Specialization" />
+            </div>
+        <span asp-validation-for="Specialization"></span>
+        </div>
+        <div>
+        <label asp-for="Pension">Введите Pension</label><br />
+            <div class="dPension">
+                <input type="file" asp-for="Pension" />
+            </div>
+        <span asp-validation-for="Pension"></span>
+        </div>
+        <div>
+            <label asp-for="Certificates">Введите Certificates</label><br />
+            <div class="dCertificates">
+
+                <input type="file" asp-for="Certificates" />
+                
+            </div><span asp-validation-for="Certificates"></span>
+
+        </div>
+        <div>
+            <label asp-for="Employhis">Введите Employhis</label><br />
+            <div class="dEmployhis">
+                <input type="file" asp-for="Employhis" />
+                <span asp-validation-for="Employhis"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Addres">Введите Addres</label><br />
+            <div class="dAddres">
+                <input type="file" asp-for="Addres" />
+                <span asp-validation-for="Addres"></span>
+            </div>                                                  
+        </div>
+        <div>
+            <label asp-for="Conviction">Введите Сonviction</label><br />
+            <div class="dСonviction">
+                <input type="file" asp-for="Conviction" />
+            </div>
+            <span asp-validation-for="Conviction"></span>
+        </div>
+        <div>
+            <label asp-for="Narcodisp">Введите Narcodisp</label><br />
+            <div class="dNarcodisp">
+                <input type="file" asp-for="Narcodisp" />
+            </div>
+            <span asp-validation-for="Narcodisp"></span>
+        </div>
+        <div>
+            <label asp-for="Psychodisp">Введите Psychodisp</label><br />
+            <div class="dPsychodisp">
+                <input type="file" asp-for="Psychodisp" />
+            </div>
+            <span asp-validation-for="Psychodisp"></span>                                                 
+        </div>
+        <div>
+            <label asp-for="Military">Введите Military</label><br />
+            <div class="dMilitary">
+                <input type="file" asp-for="Military" />
+            </div>
+            <span asp-validation-for="Military"></span>                                               
+            </div>
+        <div>
+            <label asp-for="Docphoto">Введите Docphoto</label><br />
+            <div class="dDocphoto">
+                <input type="file" asp-for="Docphoto" />
+             </div>
+            <span asp-validation-for="Docphoto"></span>
+        </div>
+        <div>
+            <label asp-for="Refmainjob">Введите Refmainjob</label><br />
+            <div class="dRefmainjob">
+                <input type="file" asp-for="Refmainjob" />
+            </div>
+            <span asp-validation-for="Refmainjob"></span><br />
+            <input type="checkbox" asp-for="IsRefmainjob" />
+        </div>
+        <div>
+            <label asp-for="Marriage">Введите Marriage</label><br />
+            <div class="dMarriage">
+                <input type="file" asp-for="Marriage" /><br />
+            </div>
+            <span asp-validation-for="Marriage"></span><br />
+            <input type="checkbox" asp-for="IsMarriage" />
+        </div>
+        <div>
+            <label asp-for="Cash">Введите Cash</label><br />
+            <div class="dCash">
+                <input type="file" asp-for="Cash" />
+            </div>
+            <span asp-validation-for="Cash"></span>
+        </div>
+        <div>
+            <label asp-for="Forma086">Введите Forma086</label><br />
+            <div class="dForma086">
+                <input type="file" asp-for="Forma086" />
+            </div>
+            <span asp-validation-for="Forma086"></span>
+        </div>
+        <div>
+            <input type="submit" value="Send" />
+        </div>
+    </div>
+</form>

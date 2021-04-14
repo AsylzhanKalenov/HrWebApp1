@@ -1,0 +1,126 @@
+﻿@model PrivViewModel
+@{ 
+}
+
+<form asp-action="Priv" asp-controller="Auth" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div class="container">
+        <p>
+            <img src="../img/regicon.png" class="img-fluid">
+            Регистрация данных
+        </p>
+        <table class="registr">
+            <tr>
+                <td><p>Ваш ИИН:</p></td>
+                <td>
+                    <input type="text" asp-for="iin" />
+                    <span asp-validation-for="iin"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Адрес прописки:</p></td>
+                <td>
+                    <input type="text" asp-for="address" />
+                    <span asp-validation-for="address"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Семейное положение:</p></td>
+                <td>
+                    <input style="width: 15px !important;" type="radio" asp-for="ismarrige" value="true" />
+                    <label asp-for="ismarrige">В браке</label>
+                    <input style="width: 15px !important;" type="radio" asp-for="ismarrige" value="false" />
+                    <label asp-for="ismarrige">Холост</label>
+                    <span asp-validation-for="ismarrige"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Дети:</p></td>
+                <td>
+                    <table class="childrendata">
+                        <colgroup>
+                            <col width="60%">
+                            <col width="30%">
+                            <col width="10%">
+                        </colgroup>
+                        <tr>
+                            <th>ФИО</th>
+                            <th>Дата рождение</th>
+                            <th>Добавить</th>
+                        </tr>
+                    @if (Model!=null)
+                    {
+                        @for (int i = 0; i < Model.Children.Length; i++)
+                        {
+                        string index = "index" + i.ToString();
+                        @if (i == 0)
+                        {
+                        <tr class="chform @index">
+                            <td>
+                                <input type="text" class="fio" name="Children[@i].fio" value="@Model.Children[i].fio"/>
+                            </td>
+                            <td>
+                                <input type="date" class="BirthDate" name="Children[@i].BirthDate" value="@Model.Children[i].BirthDate.ToString("dd.MM.yyyy")"/>
+                            </td>
+                            <td><input type="button" name="add" value="+" onclick="addChildform()" class="btn btn-primary" style="width: 36px !important;"/></td>
+                        </tr>
+                        }
+                        else { 
+                        <tr class="chform @index">
+                            <td>
+                                <input type="text" class="fio" name="Children[@i].fio" value="@Model.Children[i].fio" />
+                            </td>
+                            <td>
+                                <input type="date" class="BirthDate" name="Children[@i].BirthDate" value="@Model.Children[i].BirthDate.ToString("dd.MM.yyyy")" />
+                            </td>
+                            <td><input type="button" name="add" value="-" onclick="closeChildform('@index')" class="btn btn-danger cl_input" style="width: 36px !important;" /></td>
+                        </tr>
+                        }
+                        }
+                    }
+                    else { 
+                    <tr class="chform index0">
+                        <td>
+                            <input type="text" class="fio" name="Children[0].fio"/>
+                        </td>
+                        <td>
+                            <input type="date" class="BirthDate" name="Children[0].BirthDate"/>
+                        </td>
+                        <td><input type="button" name="add" value="+" onclick="addChildform()" class="btn btn-primary" style="width: 36px !important;" /></td>
+                    </tr>
+                        }
+
+                    </table>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input style="width: 135px !important;" type="submit" value="Регистрация" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+<script>
+    function addChildform() {
+        var count = $('.childrendata tr.chform').length;
+        var name = "index" + count;
+
+        $(".childrendata").append("<tr class=\"chform index" + count + "\"><td><input type=\"text\" class=\"fio\" name=\"Children[" + count + "].fio\" /></td ><td><input type=\"date\" class=\"BirthDate\" name=\"Children[" + count + "].BirthDate\" /></td><td><input type=\"button\" name=\"'cl_" + count + "'\" value=\"-\" onclick=\"closeChildform('" + name + "')\" class=\"btn btn-danger cl_input\" style=\"width: 36px!important;\"/></td> </tr >");
+    }
+    function closeChildform(name) {
+        var count = $('.childrendata tr.chform').length;
+        var num1 = 0;
+        $('.childrendata tr.' + name).remove();
+        $("tr.chform").each(function () {
+            $(this).removeClass();
+            $(this).addClass("chform index" + num1);
+            $(this).find("input.cl_input").attr('onclick', "closeChildform('index" + num1 + "')");
+            $(this).find("input.fio").attr('name', "Children[" + num1 + "].fio");
+            $(this).find("input.BirthDate").attr('name', "Children[" + num1 + "].BirthDate");
+            num1++;
+        });
+    }
+</script>

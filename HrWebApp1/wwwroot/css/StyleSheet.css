@@ -1,0 +1,177 @@
+﻿nav {
+    background: #5EB3D2;
+    width: 100%;
+}
+
+ul {
+    width: 100%;
+}
+
+ul.hrmodules {
+    margin: 30px 0;
+    background-color: #E9E5E5;
+}
+
+li a {
+    display: compact !important;
+    color: white !important;
+    font-size: medium;
+}
+
+ul.hrmodules li {
+    border-right: 1px solid #BCBBBB;
+}
+
+ul.hrmodules li a {
+    font-size: 0.8em;
+    padding: 10px 15px;
+    text-align: center;
+    color: #5EB3D2 !important;
+}
+
+ul.statusorder li {
+    background-color: #5EB3D2;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+li.loginlink {
+    right: 100px;
+}
+
+.logo {
+    position: relative;
+    background-color: #EFEFEF;
+    z-index: -1;
+}
+
+.img-fluid {
+    margin: 7px 0;
+}
+
+.formlogin {
+    max-width: 450px;
+    margin: -50px auto;
+    background: rgba(196, 196, 196, 0.7);
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1;
+}
+
+.formlogin h2 {
+    padding-top: 20px;
+}
+
+.form-group input.form-control {
+    margin: 0 auto;
+    max-width: 340px;
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    background: rgba(196, 196, 196, 0);
+}
+
+.formlogin button {
+    margin-bottom: 20px;
+}
+
+table.registr {
+    max-width: 800;
+}
+
+    table.registr tr td p {
+        text-align: right;
+        margin: 10px;
+    }
+
+    table.registr tr td input {
+        width: 400px;
+    }
+
+table.childrendata {
+    width: 600px;
+}
+
+    table.childrendata, table.childrendata th, table.childrendata td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+        table.childrendata th {
+            padding: 10px;
+            text-align: center;
+        }
+
+        table.childrendata td {
+            padding: 30px;
+            text-align: left;
+        }
+
+.search {
+    width: 90%;
+    margin: 14px auto;
+}
+
+    .search table, .search table th, .search table td {
+        border: 1px solid #E1DCDC;
+        border-collapse: collapse;
+    }
+
+        .search table tr th {
+            padding: 10px;
+        }
+
+        .search table tr td {
+            padding: 10px;
+        }
+
+        .search table tr.order-1 {
+            background-color: #FAF7F7;
+        }
+
+        .search table tr.order-2 {
+            background-color: #F0FAF9;
+        }
+
+    .search input {
+        color: white;
+        padding: 3px 13px;
+        background: #5EB3D2;
+        border: none;
+        border-radius: 8px;
+    }
+
+@media (max-width:1210px) {
+    table.registr tr td p {
+        font-size: 80%;
+    }
+}
+
+@media (max-width:380px) {
+    table.registr tr td p {
+        font-size: 63%;
+    }
+
+    table.registr tr td input {
+        width: 150px;
+    }
+
+    table.childrendata {
+        width: 300px;
+        margin-bottom: 30px;
+    }
+
+        table.childrendata th {
+            padding: 6px;
+            text-align: center;
+        }
+
+        table.childrendata td {
+            padding: 17px;
+            text-align: left;
+        }
+}
+
+.formlogin {
+    margin: 10px auto;
+}

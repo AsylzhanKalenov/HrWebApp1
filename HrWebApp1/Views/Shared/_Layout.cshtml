@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+    <link rel="stylesheet" href="~/css/StyleSheet.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <ul class="navbar-nav justify-content-center" style="margin-left: 36px;">
+            <li class="nav-item active">
+                <a class="nav-link" href="/auth">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">О компании</a>
+            </li>
+        </ul>
+
+        <ul class="nav justify-content-end" style="margin: 0 36px;">
+            @if (String.IsNullOrEmpty(User.Identity.Name))
+            {
+                <li class="loginlink nav-item">
+                    <a asp-controller="Auth" asp-action="Login">Личный кабинет</a> |
+                    <a asp-controller="Auth" asp-action="Regis">Регистрация</a>
+                </li>
+            }
+            else
+            {
+        <li class="nav-item">
+            <a href="#" class="nav-link">Hello @User.Identity.Name</a>
+            <a asp-controller="Auth" asp-action="Priv">Личные данные</a>
+            <a asp-controller="Auth" asp-action="Logout" class="nav-link bg-danger">Logout</a>
+        </li>
+            }
+
+        </ul>
+    </nav>
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
