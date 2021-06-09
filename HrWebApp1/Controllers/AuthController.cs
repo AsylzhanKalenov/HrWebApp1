@@ -134,6 +134,7 @@ namespace HrWebApp1.Controllers
                     }
                 }
             }
+            ModelState.AddModelError("", "Пожалуйста, заполните все необходимые поля!");
             return View(regData);
         }
 

@@ -1,215 +1,261 @@
 ﻿@model EditFileViewModel
+    <div class="container">
+        <h4>@ViewData["Status"]</h4>
+        <div class="progress">
+            <div class="@ViewData["ProgressBar"]" style="width: @ViewData["Progress"]"></div>
+        </div>
+        <br />
+        <table>
+            <colgroup>
+                <col width="10%" />
+                <col width="50%" />
+                <col width="30%" />
 
-<table>
-    <tr>
-        <td>
-            UserId:
-        </td>
-        <td>
-            <input type="text" asp-for="UserId" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            FilecatId:
-        </td>
-        <td>
-            <input type="text" asp-for="FileCatsId" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Specialization:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Specialization)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Udv:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Udv)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Pension:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Pension)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Certificates:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Certificates)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Employhis:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Employhis)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Addres:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Addres)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Conviction:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Conviction)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Narcodisp:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Narcodisp)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Psychodisp:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Psychodisp)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Military:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Military)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Docphoto:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Docphoto)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Refmainjob:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Refmainjob)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Marriage:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Marriage)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Cash:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Cash)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Forma086:
-        </td>
-        <td align="left" class="left_menu">
-            @foreach (string fname in Model.Forma086)
-            {
-                <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
-                    <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
-                </a>
-            }
-        </td>
-    </tr>
-</table>
+            </colgroup>
+            <tr>
+                <th>Наименовние</th>
+                <th>Документы</th>
+                <th>Замечание</th>
+            </tr>
+            <tr>
+                <td>
+                    Specialization:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Specialization)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.SpecializationComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Udv:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Udv)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.UdvComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Pension:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Pension)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.PensionComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Certificates:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Certificates)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.CertificatesComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Employhis:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Employhis)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.EmployhisComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Addres:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Addres)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.AddresComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Conviction:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Conviction)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.ConvictionComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Narcodisp:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Narcodisp)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.NarcodispComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Psychodisp:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Psychodisp)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.PsychodispComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Military:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Military)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.MilitaryComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Docphoto:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Docphoto)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.DocphotoComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Refmainjob:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Refmainjob)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.RefmainjobComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Marriage:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Marriage)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.MarriageComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Cash:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Cash)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.CashComm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Forma086:
+                </td>
+                <td align="left" class="left_menu">
+                    @foreach (string fname in Model.Forma086)
+                    {
+                        <a data-fancybox="gallery" href="https://localhost:44340/api/userdocs/GetImage/@fname">
+                            <img src="https://localhost:44340/api/userdocs/GetImage/@fname" class="box transform" width="100" style="border: 1px dashed #33D8FF;">
+                        </a>
+                    }
+                </td>
+                <td style="border-bottom: 1px solid #B1CBD1">
+                    <p>@Model.Forma086Comm</p>
+                </td>
+            </tr>
+        </table>
+    </div>

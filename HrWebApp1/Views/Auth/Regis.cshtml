@@ -1,7 +1,6 @@
 ﻿@model RegisViewModel
 
 <form asp-action="Regis" asp-controller="Auth" asp-anti-forgery="true">
-    <div class="validation" asp-validation-summary="ModelOnly"></div>
     @*<div>
         <div>
             <label asp-for="Email">Введите Email</label><br />
@@ -57,6 +56,8 @@
     </div>*@
 
     <div class="container">
+
+        <div class="validation alert-danger" asp-validation-summary="ModelOnly" ></div>
         <p>
             <img src="../img/regicon.png" class="img-fluid">
             Регистрация данных
@@ -131,7 +132,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <input style="width: 135px !important;" type="submit" value="Регистрация" class="btn btn-primary"/>
+                    <input style="width: 135px !important;" type="submit" value="Регистрация" class="btn btn-primary" />
                 </td>
             </tr>
         </table>

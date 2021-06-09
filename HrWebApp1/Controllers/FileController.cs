@@ -228,29 +228,6 @@ namespace HrWebApp1.Controllers
             return View(file);
         }
 
-        public async Task<IActionResult> EditFile()
-        {
-            AuthController auth;
-            EditFileViewModel file;
-            User u = CheckUser();
-            if (u != null)
-            {
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri("https://localhost:44340/");
-                    var response = client.GetAsync("api/userdocs/GetUserDocByUserId?userid="+u.Id+"&filecatid=3").Result;
-                    var result = response.Content.ReadAsStringAsync().Result;
-
-                    file = JsonConvert.DeserializeObject<EditFileViewModel>(result);
-                    if (file == null)
-                        return RedirectToAction("SendFile");
-                    return View(file);
-                }
-            }
-            return Content("Something wrong");
-        }
-
-
         private MultipartFormDataContent ContainFormData(int filecatid, IFormFile[] file, string name) {
             HttpContent useremail = new StringContent(User.Identity.Name);
             HttpContent catid = new StringContent(filecatid.ToString());
@@ -269,6 +246,144 @@ namespace HrWebApp1.Controllers
             }
 
             return multiContent;
+        }
+
+        public async Task<IActionResult> EditFile()
+        {
+            AuthController auth;
+            EditFileViewModel file;
+            User u = CheckUser();
+            if (u != null)
+            {
+                string status = "Вы не отправили файлы", progressbar = "", progress = "0%";
+                if (u.Status == 0)
+                {
+                    status = "Ждет проверки";
+                    progress = "30%";
+                }
+                if (u.Status == 1)
+                {
+                    status = "Проверяется";
+                    progressbar = "bg-warning";
+                    progress = "60%";
+                }
+                if (u.Status == 2)
+                {
+                    status = "Нужны исправление";
+                    progressbar = "bg-danger";
+                    progress = "40%";
+                }
+                if (u.Status == 3)
+                {
+                    status = "Пройдена";
+                    progressbar = "bg-success";
+                    progress = "100%";
+                }
+
+                ViewData["Status"] = status;
+                ViewData["ProgressBar"] = "progress-bar " + progressbar + " progress-bar-striped progress-bar-animated";
+                ViewData["Progress"] = progress;
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("https://localhost:44340/");
+                    var response = client.GetAsync("api/userdocs/GetUserDocByUserId?userid=" + u.Id + "&filecatid=3").Result;
+                    var result = response.Content.ReadAsStringAsync().Result;
+
+                    file = JsonConvert.DeserializeObject<EditFileViewModel>(result);
+                    if (file == null)
+                        return RedirectToAction("SendFile");
+
+
+
+                    return View(SetComment(u, file));
+                }
+            }
+            return Content("Something wrong");
+        }
+
+        private EditFileViewModel SetComment(User u, EditFileViewModel file)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44340/");
+                var response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=2").Result;
+                var result = response.Content.ReadAsStringAsync().Result;
+                CheckCatViewModel comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.SpecializationComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=3").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.UdvComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=4").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.PensionComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=5").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.CertificatesComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=6").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.EmployhisComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=7").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.AddresComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=8").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.ConvictionComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=9").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.NarcodispComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=10").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.PsychodispComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=11").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.MilitaryComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=12").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.DocphotoComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=13").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.RefmainjobComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=14").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.MarriageComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=15").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.CashComm = comm.Comments;
+
+                response = client.GetAsync("api/checkcats/GetCheckCatByUser?userid=" + u.Id + "&catid=16").Result;
+                result = response.Content.ReadAsStringAsync().Result;
+                comm = JsonConvert.DeserializeObject<CheckCatViewModel>(result);
+                file.Forma086Comm = comm.Comments;
+
+
+                return file;
+            } 
         }
 
         public async Task<string> SaveFile(IFormFile file, string filename)
